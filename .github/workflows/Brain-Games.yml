@@ -1,8 +1,11 @@
 name: Brain-Games
-# This workflow is triggered on pushes to the repository.
-on: [push]
-  jobs:
-    build:
-      steps:
-        run: |
-            make lint
+
+on: 
+  - push
+
+jobs:
+  build:
+
+    steps:
+      run: |
+          make lint
