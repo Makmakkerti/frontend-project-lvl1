@@ -14,8 +14,8 @@ jobs:
         node-version: [13.x]
 
   steps:
-      - uses: actions/checkout@v2
-      - name: Run linter
-        # Run Linter
-        run: |
-          make lint
+    - uses: actions/checkout@v2
+    - name: Run linter
+      # Run Linter
+      run: |
+         make lint
