@@ -1,6 +1,3 @@
-ci:
-	pwd
-
 lint:
 	npx eslint .
 
