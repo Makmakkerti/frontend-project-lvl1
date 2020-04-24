@@ -13,9 +13,11 @@ jobs:
       matrix:
         node-version: [13.x]
 
-  steps:
-    - uses: actions/checkout@v2
-    - name: Run linter
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Run linter
       # Run Linter
       run: |
-         make lint
+        make lint
