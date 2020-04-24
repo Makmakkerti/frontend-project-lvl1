@@ -1,6 +1,6 @@
 name: Brain-Games
 
-on: 
+on:
   - push
 
 jobs:
@@ -18,9 +18,8 @@ jobs:
         # Install and build project
         run: |
           make install
-        # Add environment variables
-        env:
-          CI: true
+
       - name: Run linter
         # Run Linter
-        run: make lint
+        run: |
+          make lint
