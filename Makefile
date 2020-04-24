@@ -1,4 +1,4 @@
-install : 
+install: 
 	npm install
 
 start: 
@@ -9,5 +9,4 @@ publish:
 
 lint:
 	npx eslint .
-	
-	
+
