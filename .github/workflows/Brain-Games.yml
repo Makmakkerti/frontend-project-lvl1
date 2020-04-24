@@ -5,7 +5,9 @@ on:
 
 jobs:
   build:
-
+    
     steps:
-      run: |
+      - name: Run linter
+        # Run Linter
+        run: |
           make lint
