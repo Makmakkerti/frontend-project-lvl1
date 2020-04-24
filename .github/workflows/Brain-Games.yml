@@ -13,8 +13,9 @@ jobs:
       matrix:
         node-version: [13.x]
 
-    steps:
+	steps:
+	    - uses: actions/checkout@v2
       - name: Run linter
         # Run Linter
         run: |
-          npx eslint .
+          make lint
