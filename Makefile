@@ -6,3 +6,8 @@ start:
 
 publish: 
 	npm publish --dry-run
+
+make:
+	make lint
+	
+	
