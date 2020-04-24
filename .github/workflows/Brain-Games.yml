@@ -1,20 +1,20 @@
 name: Brain-Games
 
 on:
-	- push
+  - push
 
 jobs:
-	build:
-		# The type of machine to run the job on
-		runs-on: ubuntu-latest
+  build:
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
 
-		strategy:
-		# Node versions list
-			matrix:
-				node-version: [13.x]
+    strategy:
+      # Node versions list
+      matrix:
+        node-version: [13.x]
 
-		steps:
-		- name: Run linter
-			# Run Linter
-			run: |
-				npx eslint .
+    steps:
+      - name: Run linter
+        # Run Linter
+        run: |
+          npx eslint .
