@@ -20,10 +20,10 @@ const evenGame = (counter, username) => {
   // eslint-disable-next-line no-mixed-operators
   if (answer === 'yes' && isEven || answer === 'no' && !isEven) {
     log('Correct!');
-    evenGame(counter + 1, username);
-  } else {
-    wrongAnswer(answer, correctAnswer);
+    return evenGame(counter + 1, username);
   }
+
+  return wrongAnswer(answer, correctAnswer);
 };
 
 export default evenGame;

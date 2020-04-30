@@ -36,10 +36,9 @@ const calcGame = (counter, username) => {
   // eslint-disable-next-line no-mixed-operators
   if (+answer === correctAnswer) {
     log('Correct!');
-    calcGame(counter + 1, username);
-  } else {
-    wrongAnswer(answer, correctAnswer);
+    return calcGame(counter + 1, username);
   }
+  return wrongAnswer(answer, correctAnswer);
 };
 
 export default calcGame;
