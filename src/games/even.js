@@ -9,7 +9,6 @@ const evenGame = (counter, username) => {
   if (counter === 3) return winner();
   if (counter === 0) greeting(description);
 
-  // Generate random number 0-100
   const generatedNumber = generateRandomNumber();
   askQuestion(`${generatedNumber}`);
 
@@ -22,7 +21,6 @@ const evenGame = (counter, username) => {
     log('Correct!');
     return evenGame(counter + 1, username);
   }
-
   return wrongAnswer(answer, correctAnswer);
 };
 

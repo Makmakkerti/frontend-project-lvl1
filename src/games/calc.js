@@ -15,13 +15,11 @@ const calcGame = (counter, username) => {
   const description = 'What is the result of the expression?';
   if (counter === 0) greeting(description);
 
-  // Generate random number 0-100
   const generatedNumber1 = generateRandomNumber();
   const generatedNumber2 = generateRandomNumber();
   const operator = generateSign(generateRandomNumber());
 
   askQuestion(`${generatedNumber1} ${operator} ${generatedNumber2}`);
-
   const answer = readlineSync.question('Your answer: ');
   let correctAnswer;
 
@@ -33,7 +31,6 @@ const calcGame = (counter, username) => {
     correctAnswer = generatedNumber1 * generatedNumber2;
   }
 
-  // eslint-disable-next-line no-mixed-operators
   if (+answer === correctAnswer) {
     log('Correct!');
     return calcGame(counter + 1, username);
