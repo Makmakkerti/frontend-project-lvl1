@@ -2,6 +2,6 @@
 
 // eslint-disable-next-line import/extensions
 import { game } from '../src/index.js';
-import evenGame from '../src/games/even.js';
+import calcGame from '../src/games/calc.js';
 
-game(evenGame);
+game(calcGame);
