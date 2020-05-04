@@ -18,7 +18,7 @@ const progressionArrayGenerator = (startNumber) => {
 };
 
 const progressionFromArray = (arr) => {
-  const hidePosition = Math.round((Math.random() * 10));
+  const hidePosition = Math.round((Math.random() * (progressionLength - 1)));
   const result = [];
   let progressionString = '';
 

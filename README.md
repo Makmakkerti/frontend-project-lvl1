@@ -15,3 +15,12 @@
 
 ## Calc Fail
 [![asciicast](https://asciinema.org/a/Baprx2RFulcOev1XiIVGkvLgf.svg)](https://asciinema.org/a/Baprx2RFulcOev1XiIVGkvLgf)
+
+## GCD Fail
+[![asciicast](https://asciinema.org/a/326630.svg)](https://asciinema.org/a/326630)
+
+## Progression Success
+[![asciicast](https://asciinema.org/a/326642.svg)](https://asciinema.org/a/326642)
+
+## Progression Fail
+[![asciicast](https://asciinema.org/a/326644.svg)](https://asciinema.org/a/326644)
