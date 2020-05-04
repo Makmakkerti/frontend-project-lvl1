@@ -24,3 +24,9 @@
 
 ## Progression Fail
 [![asciicast](https://asciinema.org/a/326644.svg)](https://asciinema.org/a/326644)
+
+## isPrime Success
+[![asciicast](https://asciinema.org/a/326648.svg)](https://asciinema.org/a/326648)
+
+## isPrime Fail
+[![asciicast](https://asciinema.org/a/326649.svg)](https://asciinema.org/a/326649)
