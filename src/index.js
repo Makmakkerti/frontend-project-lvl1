@@ -3,39 +3,26 @@ import readlineSync from 'readline-sync';
 let username;
 const numberOfRounds = 3;
 
-const runGame = (gameType, counter = 0) => {
+const playRound = (gameType, description, counter = 0, question, correctAnswer) => {
   if (counter === numberOfRounds) return console.log(`Congratulations, ${username}`);
-  return gameType(counter);
-};
-
-const greeting = (counter, description) => {
   if (counter === 0) {
     console.log('Welcome to Brain Games!');
     username = readlineSync.question('May I have your name?: ');
     console.log(`Hello, ${username}!`);
     console.log(description);
   }
-};
 
-const askQuestion = (q) => {
-  console.log(`Question: ${q}`);
-};
+  console.log(`Question: ${question}`);
+  const answer = readlineSync.question('Your answer: ');
 
-const wrongAnswer = (wrong, correct) => {
-  console.log(`"${wrong}" is wrong answer ;(. Correct answer was "${correct}".`);
-  console.log(`Let's try again, ${username}!`);
-};
-
-const nextStep = (gameType, answer, correctAnswer, counter) => {
   if (answer === correctAnswer.toString()) {
     console.log('Correct!');
-    return runGame(gameType, counter + 1);
+    return gameType(counter + 1);
   }
-  return wrongAnswer(answer, correctAnswer);
+
+  console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+  console.log(`Let's try again, ${username}!`);
+  return 0;
 };
 
-const generateRandomNumber = () => Math.floor(Math.random() * (100));
-
-export {
-  runGame, greeting, askQuestion, nextStep, generateRandomNumber,
-};
+export default playRound;

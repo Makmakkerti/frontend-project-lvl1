@@ -1,7 +1,4 @@
-import readlineSync from 'readline-sync';
-import {
-  greeting, askQuestion, nextStep, generateRandomNumber,
-} from '../index.js';
+import playRound from '../index.js';
 
 const findGcd = (a, b) => {
   const min = a > b ? b : a;
@@ -21,14 +18,11 @@ const findGcd = (a, b) => {
 const description = 'Find the greatest common divisor of given numbers.';
 
 const gcdGame = (counter) => {
-  greeting(counter, description);
-  const generatedNumber1 = generateRandomNumber();
-  const generatedNumber2 = generateRandomNumber();
-  askQuestion(`${generatedNumber1} ${generatedNumber2}`);
-
-  const answer = readlineSync.question('Your answer: ');
+  const generatedNumber1 = Math.floor(Math.random() * (100));
+  const generatedNumber2 = Math.floor(Math.random() * (100));
+  const question = `${generatedNumber1} ${generatedNumber2}`;
   const correctAnswer = findGcd(generatedNumber1, generatedNumber2);
-  nextStep(gcdGame, answer, correctAnswer, counter);
+  playRound(gcdGame, description, counter, question, correctAnswer);
 };
 
 export default gcdGame;

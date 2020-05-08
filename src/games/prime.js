@@ -1,7 +1,4 @@
-import readlineSync from 'readline-sync';
-import {
-  greeting, askQuestion, nextStep,
-} from '../index.js';
+import playRound from '../index.js';
 
 const isPrimeNumber = (num) => {
   if (num <= 1) return false;
@@ -17,14 +14,10 @@ const isPrimeNumber = (num) => {
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const primeGame = (counter) => {
-  greeting(counter, description);
-  const generatedNumber = Math.floor(Math.random() * 10000);
-  askQuestion(`${generatedNumber}`);
-
-  const answer = readlineSync.question('Your answer: ');
-  const isPrime = isPrimeNumber(generatedNumber);
+  const question = Math.floor(Math.random() * 10000);
+  const isPrime = isPrimeNumber(question);
   const correctAnswer = isPrime ? 'yes' : 'no';
-  nextStep(primeGame, answer, correctAnswer, counter);
+  playRound(primeGame, description, counter, question, correctAnswer);
 };
 
 export default primeGame;

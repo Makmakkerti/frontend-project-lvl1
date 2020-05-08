@@ -1,7 +1,4 @@
-import readlineSync from 'readline-sync';
-import {
-  greeting, askQuestion, nextStep, generateRandomNumber,
-} from '../index.js';
+import playRound from '../index.js';
 
 const generateSign = (rand) => {
   if (rand < 33) return '+';
@@ -24,15 +21,12 @@ const calculateOperation = (operator = '+', num1, num2) => {
 const description = 'What is the result of the expression?';
 
 const calcGame = (counter) => {
-  greeting(counter, description);
-  const generatedNumber1 = generateRandomNumber();
-  const generatedNumber2 = generateRandomNumber();
-  const operator = generateSign(generateRandomNumber());
-
-  askQuestion(`${generatedNumber1} ${operator} ${generatedNumber2}`);
-  const answer = readlineSync.question('Your answer: ');
+  const generatedNumber1 = Math.floor(Math.random() * (100));
+  const generatedNumber2 = Math.floor(Math.random() * (100));
+  const operator = generateSign(Math.floor(Math.random() * (100)));
+  const question = `${generatedNumber1} ${operator} ${generatedNumber2}`;
   const correctAnswer = calculateOperation(operator, generatedNumber1, generatedNumber2);
-  nextStep(calcGame, answer, correctAnswer, counter);
+  playRound(calcGame, description, counter, question, correctAnswer);
 };
 
 export default calcGame;
