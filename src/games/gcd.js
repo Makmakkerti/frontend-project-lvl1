@@ -4,17 +4,8 @@ import {
 } from '../index.js';
 
 const findGcd = (a, b) => {
-  let min = 0;
-  let max = 0;
-
-  if (a > b) {
-    min = b;
-    max = a;
-  } else {
-    min = a;
-    max = b;
-  }
-
+  const min = a > b ? b : a;
+  const max = a > b ? a : b;
   if (max % min === 0) return min;
 
   for (let i = min; i > 1; i -= 1) {

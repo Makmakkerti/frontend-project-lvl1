@@ -3,7 +3,6 @@ import readlineSync from 'readline-sync';
 let username;
 const numberOfRounds = 3;
 
-// General Functions
 const runGame = (gameType, counter = 0) => {
   if (counter === numberOfRounds) return console.log(`Congratulations, ${username}`);
   return gameType(counter);
