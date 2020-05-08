@@ -1,18 +1,14 @@
 import playRound from '../index.js';
 
 const findGcd = (a, b) => {
-  const min = a > b ? b : a;
-  const max = a > b ? a : b;
-  if (max % min === 0) return min;
-
-  for (let i = min; i > 1; i -= 1) {
-    if (max % i === 0) {
-      if (min % i === 0) {
-        return i;
-      }
-    }
+  let x = Math.abs(a);
+  let y = Math.abs(b);
+  while (y) {
+    const t = y;
+    y = x % y;
+    x = t;
   }
-  return 1;
+  return x;
 };
 
 const description = 'Find the greatest common divisor of given numbers.';

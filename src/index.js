@@ -19,10 +19,8 @@ const playRound = (gameType, description, counter = 0, question, correctAnswer) 
     console.log('Correct!');
     return gameType(counter + 1);
   }
-
   console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
-  console.log(`Let's try again, ${username}!`);
-  return 0;
+  return console.log(`Let's try again, ${username}!`);
 };
 
 export default playRound;
