@@ -1,8 +1,37 @@
 import readlineSync from 'readline-sync';
 import {
-  greeting, askQuestion, nextStep, generateRandomNumber, progressionArrayGenerator,
-  progressionFromArray,
+  greeting, askQuestion, nextStep, generateRandomNumber,
 } from '../index.js';
+
+const progressionArrayGenerator = (startNumber, progressionLength = 10) => {
+  const step = Math.round((Math.random() * progressionLength));
+  let temp = startNumber;
+  const arr = [];
+
+  for (let i = 0; i < progressionLength; i += 1) {
+    arr.push(temp);
+    temp += step;
+  }
+  return arr;
+};
+
+const progressionFromArray = (arr) => {
+  const progressionLength = arr.length;
+  const hidePosition = Math.round((Math.random() * (arr.length - 1)));
+  const result = [];
+  let progressionString = '';
+
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === hidePosition) {
+      progressionString += '.. ';
+      result.push(arr[i]);
+    } else {
+      progressionString += `${arr[i]} `;
+    }
+  }
+  result.push(progressionString);
+  return result;
+};
 
 const description = 'What number is missing in the progression?';
 
