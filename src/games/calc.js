@@ -1,4 +1,4 @@
-import playRound from '../index.js';
+import playGame from '../index.js';
 
 const generateSign = (rand) => {
   if (rand < 33) return '+';
@@ -20,13 +20,18 @@ const calculateOperation = (operator = '+', num1, num2) => {
 
 const description = 'What is the result of the expression?';
 
-const calcGame = (counter) => {
+const generateGameData = () => {
   const generatedNumber1 = Math.floor(Math.random() * (100));
   const generatedNumber2 = Math.floor(Math.random() * (100));
   const operator = generateSign(Math.floor(Math.random() * (100)));
   const question = `${generatedNumber1} ${operator} ${generatedNumber2}`;
   const correctAnswer = calculateOperation(operator, generatedNumber1, generatedNumber2);
-  playRound(calcGame, description, counter, question, correctAnswer);
+  return [description, question, correctAnswer];
+};
+
+const calcGame = (counter) => {
+  const gameData = generateGameData();
+  playGame(calcGame, counter + 1, ...gameData);
 };
 
 export default calcGame;

@@ -3,9 +3,10 @@ import readlineSync from 'readline-sync';
 let username;
 const numberOfRounds = 3;
 
-const playRound = (gameType, description, counter = 0, question, correctAnswer) => {
-  if (counter === numberOfRounds) return console.log(`Congratulations, ${username}`);
-  if (counter === 0) {
+const playGame = (gameType, counter = 0, description, question, correctAnswer) => {
+  if (counter === 0) return gameType(counter);
+  if (counter > numberOfRounds) return console.log(`Congratulations, ${username}`);
+  if (counter === 1) {
     console.log('Welcome to Brain Games!');
     username = readlineSync.question('May I have your name?: ');
     console.log(`Hello, ${username}!`);
@@ -17,10 +18,10 @@ const playRound = (gameType, description, counter = 0, question, correctAnswer) 
 
   if (answer === correctAnswer.toString()) {
     console.log('Correct!');
-    return gameType(counter + 1);
+    return gameType(counter);
   }
   console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
   return console.log(`Let's try again, ${username}!`);
 };
 
-export default playRound;
+export default playGame;

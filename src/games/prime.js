@@ -1,4 +1,4 @@
-import playRound from '../index.js';
+import playGame from '../index.js';
 
 const isPrimeNumber = (num) => {
   if (num <= 1) return false;
@@ -13,11 +13,16 @@ const isPrimeNumber = (num) => {
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const primeGame = (counter) => {
-  const question = Math.floor(Math.random() * 10000);
+const generateGameData = () => {
+  const question = Math.floor(Math.random() * (999 - 2) + 1);
   const isPrime = isPrimeNumber(question);
   const correctAnswer = isPrime ? 'yes' : 'no';
-  playRound(primeGame, description, counter, question, correctAnswer);
+  return [description, question, correctAnswer];
+};
+
+const primeGame = (counter) => {
+  const gameData = generateGameData();
+  playGame(primeGame, counter + 1, ...gameData);
 };
 
 export default primeGame;

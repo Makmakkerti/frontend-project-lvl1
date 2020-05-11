@@ -1,4 +1,4 @@
-import playRound from '../index.js';
+import playGame from '../index.js';
 
 const progressionArrayGenerator = (startNumber, progressionLength = 10) => {
   const step = Math.round((Math.random() * progressionLength));
@@ -32,13 +32,18 @@ const progressionFromArray = (arr) => {
 
 const description = 'What number is missing in the progression?';
 
-const progressionGame = (counter) => {
-  const generatedNumber = Math.floor(Math.random() * (100));
-  const arrayProgression = progressionArrayGenerator(generatedNumber);
+const generateGameData = () => {
+  const startNumber = Math.floor(Math.random() * (100 - 1) + 1);
+  const arrayProgression = progressionArrayGenerator(startNumber);
   const progression = progressionFromArray(arrayProgression);
   const question = `${progression[1]}`;
   const correctAnswer = progression[0];
-  playRound(progressionGame, description, counter, question, correctAnswer);
+  return [description, question, correctAnswer];
+};
+
+const progressionGame = (counter) => {
+  const gameData = generateGameData();
+  playGame(progressionGame, counter + 1, ...gameData);
 };
 
 export default progressionGame;

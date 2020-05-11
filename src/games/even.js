@@ -1,13 +1,17 @@
-import playRound from '../index.js';
+import playGame from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const evenGame = (counter) => {
-  const generatedNumber = Math.floor(Math.random() * (100));
-  const question = `${generatedNumber}`;
-  const isEven = generatedNumber % 2 === 0;
+const generateGameData = () => {
+  const question = Math.floor(Math.random() * (100));
+  const isEven = question % 2 === 0;
   const correctAnswer = isEven ? 'yes' : 'no';
-  playRound(evenGame, description, counter, question, correctAnswer);
+  return [description, question, correctAnswer];
+};
+
+const evenGame = (counter) => {
+  const gameData = generateGameData();
+  playGame(evenGame, counter + 1, ...gameData);
 };
 
 export default evenGame;
