@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import { numberOfRounds } from '../index.js';
 
 const findGcd = (a, b) => {
   let x = Math.abs(a);
@@ -18,12 +18,15 @@ const generateGameData = () => {
   const generatedNumber2 = Math.floor(Math.random() * (100));
   const question = `${generatedNumber1} ${generatedNumber2}`;
   const correctAnswer = findGcd(generatedNumber1, generatedNumber2);
-  return [description, question, correctAnswer];
+  return [question, correctAnswer];
 };
 
-const gcdGame = (counter) => {
-  const gameData = generateGameData();
-  playGame(gcdGame, counter + 1, ...gameData);
+const gcdGame = () => {
+  const gameData = [];
+  for (let i = 0; i <= numberOfRounds; i += 1) {
+    gameData.push(generateGameData());
+  }
+  return [description, gameData];
 };
 
 export default gcdGame;

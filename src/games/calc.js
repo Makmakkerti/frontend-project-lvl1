@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import { numberOfRounds } from '../index.js';
 
 const generateSign = (rand) => {
   if (rand < 33) return '+';
@@ -26,12 +26,15 @@ const generateGameData = () => {
   const operator = generateSign(Math.floor(Math.random() * (100)));
   const question = `${generatedNumber1} ${operator} ${generatedNumber2}`;
   const correctAnswer = calculateOperation(operator, generatedNumber1, generatedNumber2);
-  return [description, question, correctAnswer];
+  return [question, correctAnswer];
 };
 
-const calcGame = (counter) => {
-  const gameData = generateGameData();
-  playGame(calcGame, counter + 1, ...gameData);
+const calcGame = () => {
+  const gameData = [];
+  for (let i = 0; i <= numberOfRounds; i += 1) {
+    gameData.push(generateGameData());
+  }
+  return [description, gameData];
 };
 
 export default calcGame;

@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import { numberOfRounds } from '../index.js';
 
 const isPrimeNumber = (num) => {
   if (num <= 1) return false;
@@ -17,12 +17,15 @@ const generateGameData = () => {
   const question = Math.floor(Math.random() * (999 - 2) + 1);
   const isPrime = isPrimeNumber(question);
   const correctAnswer = isPrime ? 'yes' : 'no';
-  return [description, question, correctAnswer];
+  return [question, correctAnswer];
 };
 
-const primeGame = (counter) => {
-  const gameData = generateGameData();
-  playGame(primeGame, counter + 1, ...gameData);
+const primeGame = () => {
+  const gameData = [];
+  for (let i = 0; i <= numberOfRounds; i += 1) {
+    gameData.push(generateGameData());
+  }
+  return [description, gameData];
 };
 
 export default primeGame;
