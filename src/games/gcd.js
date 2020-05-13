@@ -14,19 +14,17 @@ const findGcd = (a, b) => {
 const description = 'Find the greatest common divisor of given numbers.';
 
 const generateGameData = () => {
-  const generatedNumber1 = Math.floor(Math.random() * (100));
-  const generatedNumber2 = Math.floor(Math.random() * (100));
-  const question = `${generatedNumber1} ${generatedNumber2}`;
-  const correctAnswer = findGcd(generatedNumber1, generatedNumber2);
-  return [question, correctAnswer];
+  const gameData = [];
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const generatedNumber1 = Math.floor(Math.random() * (100));
+    const generatedNumber2 = Math.floor(Math.random() * (100));
+    const question = `${generatedNumber1} ${generatedNumber2}`;
+    const correctAnswer = findGcd(generatedNumber1, generatedNumber2);
+    gameData.push([question, correctAnswer]);
+  }
+  return gameData;
 };
 
-const gcdGame = () => {
-  const gameData = [];
-  for (let i = 0; i <= numberOfRounds; i += 1) {
-    gameData.push(generateGameData());
-  }
-  return [description, gameData];
-};
+const gcdGame = () => [description, generateGameData()];
 
 export default gcdGame;

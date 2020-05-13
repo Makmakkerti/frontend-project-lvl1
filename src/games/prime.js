@@ -14,18 +14,16 @@ const isPrimeNumber = (num) => {
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateGameData = () => {
-  const question = Math.floor(Math.random() * (999 - 2) + 1);
-  const isPrime = isPrimeNumber(question);
-  const correctAnswer = isPrime ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const gameData = [];
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const question = Math.floor(Math.random() * (999 - 2) + 1);
+    const isPrime = isPrimeNumber(question);
+    const correctAnswer = isPrime ? 'yes' : 'no';
+    gameData.push([question, correctAnswer]);
+  }
+  return gameData;
 };
 
-const primeGame = () => {
-  const gameData = [];
-  for (let i = 0; i <= numberOfRounds; i += 1) {
-    gameData.push(generateGameData());
-  }
-  return [description, gameData];
-};
+const primeGame = () => [description, generateGameData()];
 
 export default primeGame;

@@ -1,7 +1,7 @@
 import { numberOfRounds } from '../index.js';
 
 const progressionArrayGenerator = (startNumber, progressionLength = 10) => {
-  const step = Math.round((Math.random() * progressionLength));
+  const step = Math.round((Math.random() * 10));
   let temp = startNumber;
   const arr = [];
 
@@ -33,20 +33,18 @@ const progressionFromArray = (arr) => {
 const description = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-  const startNumber = Math.floor(Math.random() * (100 - 1) + 1);
-  const arrayProgression = progressionArrayGenerator(startNumber);
-  const progression = progressionFromArray(arrayProgression);
-  const question = `${progression[1]}`;
-  const correctAnswer = progression[0];
-  return [question, correctAnswer];
+  const gameData = [];
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const startNumber = Math.floor(Math.random() * (100 - 1) + 1);
+    const arrayProgression = progressionArrayGenerator(startNumber);
+    const progression = progressionFromArray(arrayProgression);
+    const question = `${progression[1]}`;
+    const correctAnswer = progression[0];
+    gameData.push([question, correctAnswer]);
+  }
+  return gameData;
 };
 
-const progressionGame = () => {
-  const gameData = [];
-  for (let i = 0; i <= numberOfRounds; i += 1) {
-    gameData.push(generateGameData());
-  }
-  return [description, gameData];
-};
+const progressionGame = () => [description, generateGameData()];
 
 export default progressionGame;
