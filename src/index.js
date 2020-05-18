@@ -7,12 +7,13 @@ const startGame = (generateGameData) => {
   const username = readlineSync.question('May I have your name?: ');
 
   for (let i = 0; i < numberOfRounds; i += 1) {
+    const [description, [question, correctAnswer]] = generateGameData();
+
     if (i === 0) {
-      const [description] = generateGameData();
       console.log(`Hello, ${username}!`);
       console.log(description);
     }
-    const [, [question, correctAnswer]] = generateGameData();
+
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
