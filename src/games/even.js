@@ -8,6 +8,6 @@ const generateGameData = () => {
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
-const evenGame = () => [description, generateGameData()];
 
+const evenGame = () => [description, generateGameData()];
 export default evenGame;
