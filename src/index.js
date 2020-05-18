@@ -7,7 +7,7 @@ const startGame = (generateGameData) => {
   const username = readlineSync.question('May I have your name?: ');
 
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const [description, [question, correctAnswer]] = generateGameData();
+    const [description, [question, answer]] = generateGameData();
 
     if (i === 0) {
       console.log(`Hello, ${username}!`);
@@ -15,10 +15,10 @@ const startGame = (generateGameData) => {
     }
 
     console.log(`Question: ${question}`);
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (answer !== correctAnswer) {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+    if (userAnswer !== answer) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
       console.log(`Let's try again, ${username}!`);
       return;
     }
