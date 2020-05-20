@@ -1,13 +1,13 @@
-import { generateNumberInRange } from '../utils.js';
+import { generateNumberInRange, checkBooleanAnswer } from '../utils.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const generateGameData = () => {
+const isEven = (num) => num % 2 === 0;
+
+const evenGame = () => {
   const question = generateNumberInRange(1, 100);
-  const isEven = (num) => num % 2 === 0;
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const correctAnswer = checkBooleanAnswer(isEven(question));
+  return [description, [question, correctAnswer]];
 };
 
-const evenGame = () => [description, generateGameData()];
 export default evenGame;
