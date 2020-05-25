@@ -3,11 +3,9 @@ import { generateNumberInRange } from '../utils.js';
 const description = 'What number is missing in the progression?';
 const lengthOfProgression = 10;
 
-const generateProgression = (startNumber, length) => {
-  const step = generateNumberInRange(2, 10);
+const generateProgression = (startNumber, length, step) => {
   const progression = [];
   let acc = startNumber;
-
   for (let i = 0; i < length; i += 1) {
     progression.push(acc);
     acc += step;
@@ -15,26 +13,26 @@ const generateProgression = (startNumber, length) => {
   return progression;
 };
 
-const makeProgressionAndAnswer = (progressionArray) => {
-  const { length } = progressionArray;
-  const hidePosition = generateNumberInRange(1, length - 1);
-  const answer = progressionArray[hidePosition].toString();
-  let progressionString = '';
-
-  for (let i = 0; i < length; i += 1) {
-    if (i === hidePosition) {
-      progressionString += '.. ';
+const generateQuestion = (progressionArray, hiddenPosition) => {
+  let question = '';
+  for (let i = 0; i < progressionArray.length; i += 1) {
+    if (i === hiddenPosition) {
+      question += '.. ';
     } else {
-      progressionString += `${progressionArray[i]} `;
+      question += `${progressionArray[i]} `;
     }
   }
-  return [progressionString, answer];
+  return question;
 };
 
 const progressionGame = () => {
   const startNumber = generateNumberInRange(1, 100);
-  const gameData = makeProgressionAndAnswer(generateProgression(startNumber, lengthOfProgression));
-  return [description, gameData];
+  const step = generateNumberInRange(2, 10);
+  const hiddenPosition = generateNumberInRange(1, lengthOfProgression - 1);
+  const progression = generateProgression(startNumber, lengthOfProgression, step);
+  const question = generateQuestion(progression, hiddenPosition);
+  const answer = progression[hiddenPosition].toString();
+  return [description, [question, answer]];
 };
 
 export default progressionGame;
