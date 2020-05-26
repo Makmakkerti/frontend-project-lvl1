@@ -1,4 +1,4 @@
-import { generateNumberInRange, checkBooleanAnswer } from '../utils.js';
+import { generateNumberInRange } from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -11,10 +11,12 @@ const isPrime = (num) => {
   return true;
 };
 
+const stringifyBooleanToAnswer = (bool) => (bool ? 'yes' : 'no');
+
 const primeGame = () => {
   const num = generateNumberInRange(1, 999);
   const question = num.toString();
-  const answer = checkBooleanAnswer(isPrime(num));
+  const answer = stringifyBooleanToAnswer(isPrime(num));
   return [description, [question, answer]];
 };
 

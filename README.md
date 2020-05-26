@@ -1,5 +1,10 @@
 # frontend-project-lvl1
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/cea16e510faabd5d5cb9/maintainability)](https://codeclimate.com/github/Makmakkerti/frontend-project-lvl1/maintainability)
+
+[![ProjectCI](https://github.com/Makmakkerti/frontend-project-lvl1/workflows/Brain-Games/badge.svg)](https://github.com/Makmakkerti/frontend-project-lvl1/actions)
+##
+
 ## Installation
 ```sh
 make install
@@ -24,11 +29,6 @@ make brain-prime
 ```sh
 make brain-progression
 ```
-##
-[![Maintainability](https://api.codeclimate.com/v1/badges/cea16e510faabd5d5cb9/maintainability)](https://codeclimate.com/github/Makmakkerti/frontend-project-lvl1/maintainability)
-
-[![ProjectCI](https://github.com/Makmakkerti/frontend-project-lvl1/workflows/Brain-Games/badge.svg)](https://github.com/Makmakkerti/frontend-project-lvl1/actions)
-
 ## Installation
 [![asciicast](https://asciinema.org/a/327234.svg)](https://asciinema.org/a/327234)
 
