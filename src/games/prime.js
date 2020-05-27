@@ -15,7 +15,7 @@ const primeGame = () => {
   const num = generateNumberInRange(1, 999);
   const question = num.toString();
   const answer = isPrime(question) ? 'yes' : 'no';
-  return [description, [question, answer]];
+  return [question, answer];
 };
 
-export default primeGame;
+export default { description, getData: primeGame };

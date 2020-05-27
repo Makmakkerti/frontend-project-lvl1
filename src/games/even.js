@@ -7,7 +7,7 @@ const isEven = (num) => num % 2 === 0;
 const evenGame = () => {
   const question = generateNumberInRange(1, 100);
   const answer = isEven(question) ? 'yes' : 'no';
-  return [description, [question, answer]];
+  return [question, answer];
 };
 
-export default evenGame;
+export default { description, getData: evenGame };

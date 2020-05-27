@@ -4,25 +4,14 @@ const description = 'What number is missing in the progression?';
 const lengthOfProgression = 10;
 
 const generateProgression = (firstNumber, length, step) => {
-  const progression = [];
-  let acc = firstNumber;
-  for (let i = 0; i < length; i += 1) {
-    progression.push(acc);
-    acc += step;
-  }
+  const progression = Array(length).fill().map((_item, index) => firstNumber + step * index);
   return progression;
 };
 
 const getQuestion = (progressionArray, hiddenPosition) => {
-  let question = '';
-  for (let i = 0; i < progressionArray.length; i += 1) {
-    if (i === hiddenPosition) {
-      question += '.. ';
-    } else {
-      question += `${progressionArray[i]} `;
-    }
-  }
-  return question;
+  const question = [...progressionArray];
+  question[hiddenPosition] = '..';
+  return question.join(' ');
 };
 
 const progressionGame = () => {
@@ -32,7 +21,7 @@ const progressionGame = () => {
   const progression = generateProgression(firstNumber, lengthOfProgression, step);
   const question = getQuestion(progression, hiddenPosition);
   const answer = progression[hiddenPosition].toString();
-  return [description, [question, answer]];
+  return [question, answer];
 };
 
-export default progressionGame;
+export default { description, getData: progressionGame };

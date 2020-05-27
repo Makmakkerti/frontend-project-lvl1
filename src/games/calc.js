@@ -22,7 +22,7 @@ const calcGame = () => {
   const operator = operators[generateNumberInRange(0, 2)];
   const question = `${num1} ${operator} ${num2}`;
   const answer = calculate(num1, num2, operator).toString();
-  return [description, [question, answer]];
+  return [question, answer];
 };
 
-export default calcGame;
+export default { description, getData: calcGame };

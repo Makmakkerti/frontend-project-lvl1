@@ -9,7 +9,7 @@ const gcdGame = () => {
   const num2 = generateNumberInRange(1, 100);
   const question = `${num1} ${num2}`;
   const answer = findGcd(num1, num2).toString();
-  return [description, [question, answer]];
+  return [question, answer];
 };
 
-export default gcdGame;
+export default { description, getData: gcdGame };
