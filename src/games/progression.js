@@ -26,10 +26,10 @@ const getQuestion = (progressionArray, hiddenPosition) => {
 };
 
 const progressionGame = () => {
-  const startNumber = generateNumberInRange(1, 100);
+  const firstNumber = generateNumberInRange(1, 100);
   const step = generateNumberInRange(2, 10);
   const hiddenPosition = generateNumberInRange(1, lengthOfProgression - 1);
-  const progression = generateProgression(startNumber, lengthOfProgression, step);
+  const progression = generateProgression(firstNumber, lengthOfProgression, step);
   const question = getQuestion(progression, hiddenPosition);
   const answer = progression[hiddenPosition].toString();
   return [description, [question, answer]];
