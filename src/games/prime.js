@@ -11,12 +11,10 @@ const isPrime = (num) => {
   return true;
 };
 
-const stringifyBooleanToAnswer = (bool) => (bool ? 'yes' : 'no');
-
 const primeGame = () => {
   const num = generateNumberInRange(1, 999);
   const question = num.toString();
-  const answer = stringifyBooleanToAnswer(isPrime(num));
+  const answer = isPrime(question) ? 'yes' : 'no';
   return [description, [question, answer]];
 };
 
