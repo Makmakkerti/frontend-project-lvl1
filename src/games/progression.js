@@ -8,8 +8,8 @@ const generateProgression = (firstNumber, length, step) => {
   return progression;
 };
 
-const getQuestion = (progressionArray, hiddenPosition) => {
-  const question = [...progressionArray];
+const getQuestion = (progression, hiddenPosition) => {
+  const question = [...progression];
   question[hiddenPosition] = '..';
   return question.join(' ');
 };
